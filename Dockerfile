@@ -22,4 +22,4 @@ COPY app.py .
 # Puerto
 EXPOSE 5001
 
-CMD gunicorn app:app --workers 2 --timeout 120 --bind 0.0.0.0:$PORT
+CMD ["/bin/sh", "-c", "gunicorn app:app --workers 2 --timeout 120 --bind 0.0.0.0:${PORT:-5001}"]
